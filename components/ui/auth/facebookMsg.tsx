@@ -1,11 +1,14 @@
 "use client";
 
-import { FacebookProvider, SendToMessenger } from "react-facebook";
+import { CustomChat, FacebookProvider } from "react-facebook";
 
 export const FacebookMsg = () => {
   return (
-    <FacebookProvider appId="123456789">
-      <SendToMessenger messengerAppId="123456789" pageId="123456789" />
+    <FacebookProvider appId={`${process.env.NEXT_PUBLIC_APP_ID}`}>
+      <CustomChat
+        pageId={`${process.env.NEXT_PUBLIC_PAGE_ID}`}
+        minimized={true}
+      />
     </FacebookProvider>
   );
 };
