@@ -1,12 +1,11 @@
-import { FacebookMsg } from "@/components/ui/auth/facebookMsg";
+import { Products } from "@/components/products/products";
 
 export default function Home() {
   return (
-    <div className="bg-accent">
-      <div className="rounded-md mx-auto p-2 inline-flex bg-destructive">
-        hi
+    <div className="">
+      <div className="container mx-auto max-w-screen-2xl">
+        <Products />
       </div>
-      <FacebookMsg />
     </div>
   );
 }
