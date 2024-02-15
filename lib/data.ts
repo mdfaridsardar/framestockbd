@@ -3,7 +3,20 @@ export const data = [
     category: "foods",
     title: "Lorem ipsum, dolor sit amet consectetur",
     price: 5000,
-    img: "/products/cake.jpeg",
+    productimages: [
+      {
+        img: "/products/cake.jpeg",
+      },
+      {
+        img: "/products/headphone2.jpeg",
+      },
+      {
+        img: "/products/phone.jpeg",
+      },
+      {
+        img: "/products/shoe2.jpeg",
+      },
+    ],
     qty: 240,
     subtitle:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero est perspiciatis laboriosam iure.",
@@ -12,7 +25,26 @@ export const data = [
     category: "gadgets",
     title: "Lorem, ipsum dolor",
     price: 5,
-    img: "/products/headphone.jpeg",
+    productimages: [
+      {
+        img: "/products/headphone.jpeg",
+      },
+      {
+        img: "/products/cake.jpeg",
+      },
+      {
+        img: "/products/headphone.jpeg",
+      },
+      {
+        img: "/products/headphone2.jpeg",
+      },
+      {
+        img: "/products/phone.jpeg",
+      },
+      {
+        img: "/products/shoe2.jpeg",
+      },
+    ],
     qty: 240,
     subtitle:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero est perspiciatis laboriosam iure.",
@@ -21,7 +53,11 @@ export const data = [
     category: "gadgets",
     title: "Lorem, ipsum dolor",
     price: 5,
-    img: "/products/headphone2.jpeg",
+    productimages: [
+      {
+        img: "/products/headphone2.jpeg",
+      },
+    ],
     qty: 240,
     subtitle:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero est perspiciatis laboriosam iure.",
@@ -30,7 +66,11 @@ export const data = [
     category: "phone",
     title: "Lorem, ipsum dolor",
     price: 5,
-    img: "/products/phone.jpeg",
+    productimages: [
+      {
+        img: "/products/phone.jpeg",
+      },
+    ],
     qty: 240,
     subtitle:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero est perspiciatis laboriosam iure.",
@@ -39,7 +79,11 @@ export const data = [
     category: "phone",
     title: "Lorem, ipsum dolor",
     price: 5,
-    img: "/products/phone2.jpeg",
+    productimages: [
+      {
+        img: "/products/phone2.jpeg",
+      },
+    ],
     qty: 240,
     subtitle:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero est perspiciatis laboriosam iure.",
@@ -48,7 +92,11 @@ export const data = [
     category: "shoes",
     title: "Lorem, ipsum dolor",
     price: 5,
-    img: "/products/shoe.jpeg",
+    productimages: [
+      {
+        img: "/products/shoe.jpeg",
+      },
+    ],
     qty: 240,
     subtitle:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero est perspiciatis laboriosam iure.",
@@ -57,7 +105,11 @@ export const data = [
     category: "shoes",
     title: "Lorem, ipsum dolor",
     price: 5,
-    img: "/products/shoe2.jpeg",
+    productimages: [
+      {
+        img: "/products/shoe2.jpeg",
+      },
+    ],
     qty: 240,
     subtitle:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero est perspiciatis laboriosam iure.",
@@ -66,7 +118,11 @@ export const data = [
     category: "watch",
     title: "Lorem, ipsum dolor",
     price: 5,
-    img: "/products/watch.jpeg",
+    productimages: [
+      {
+        img: "/products/watch.jpeg",
+      },
+    ],
     qty: 240,
     subtitle:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero est perspiciatis laboriosam iure.",

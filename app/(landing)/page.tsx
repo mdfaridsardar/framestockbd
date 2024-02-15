@@ -21,7 +21,7 @@ export default function Home() {
                 <Card className="flex bg-accent border-none shadow-none">
                   <div className="relative aspect-square w-28 rounded-md">
                     <Image
-                      src={item?.img}
+                      src={item?.productimages[0]?.img}
                       alt="img"
                       fill
                       className="object-cover rounded-md"
