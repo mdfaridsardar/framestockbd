@@ -1,6 +1,6 @@
 "use client";
 
-import { Products } from "@/components/products/products";
+import { Product } from "@/components/products/product";
 import { Card } from "@/components/ui/card";
 import { data } from "@/lib/data";
 import Image from "next/image";
@@ -10,7 +10,11 @@ export default function Home() {
   return (
     <div className="">
       <div className="container mx-auto max-w-screen-2xl">
-        <Products />
+        <div className="grid grid-cols-none sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-10 py-10">
+          {data.map((item, i) => {
+            return <Product key={i} product={item} />;
+          })}
+        </div>
         <div className="">
           <h1 className="py-5 text-xl capitalize font-semibold border-b">
             popular categories
