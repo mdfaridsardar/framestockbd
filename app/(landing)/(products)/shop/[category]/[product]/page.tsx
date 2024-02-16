@@ -43,7 +43,7 @@ const page = ({ params }: { params: { category: string; product: any } }) => {
 
   return (
     <div className="py-10 container mx-auto max-w-screen-2xl">
-      <div className="flex items-center gap-1 text-sm pb-5">
+      <div className="hidden md:flex items-center gap-1 text-sm pb-5 w-full">
         <Link href={"/"}>
           <Home className="w-4 h-4 text-muted-foreground hover:text-primary" />
         </Link>{" "}
@@ -110,7 +110,7 @@ const page = ({ params }: { params: { category: string; product: any } }) => {
           <div className="space-y-2 py-5 border-b">
             <h1>Price: {productView?.price}.00 &#2547;</h1>
           </div>
-          <div className="py-5 border-b flex gap-4 items-center w-full">
+          <div className="py-5 border-b flex flex-wrap gap-4 items-center w-full">
             <a
               target="_blank"
               href={`https://m.me/221402801059175?text=${url + pathname}`}>

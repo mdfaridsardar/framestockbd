@@ -99,7 +99,7 @@ export const TopNav = () => {
             priority
           />
         </div>
-        <div className="flex gap-2">
+        <div className="hidden md:flex gap-2">
           {navdata?.map((item, i) => {
             return item?.com ? (
               item?.com
@@ -121,7 +121,7 @@ export const TopNav = () => {
             );
           })}
         </div>
-        <div className="">
+        <div className="hidden md:">
           <Link href={"/contact"}>Contact</Link>
         </div>
       </div>
