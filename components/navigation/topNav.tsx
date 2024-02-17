@@ -19,21 +19,55 @@ import { Card } from "@/components/ui/card";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { Logo } from "@/components/navigation/logo";
+import { useEffect, useState } from "react";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 
 export const TopNav = () => {
-  const popularCategories = data;
   const pathname = usePathname();
+  const { scrollY } = useScroll();
+  const [iAmTooFar, setIAmTooFar] = useState(false);
+  const [homeSweetHome, setHomeSweetHome] = useState(
+    pathname == "/" ? true : false
+  );
+  const [open, setOpen] = useState<boolean>(false);
+
+  const popularCategories = data;
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > window.innerHeight - 100) {
+      setIAmTooFar(true);
+    } else {
+      setIAmTooFar(false);
+    }
+  });
+
+  useEffect(() => {
+    if (pathname == "/") {
+      setHomeSweetHome(true);
+    } else {
+      setHomeSweetHome(false);
+    }
+  }, [pathname]);
+
   const Categories = () => {
     return (
-      <Popover>
-        <PopoverTrigger className="p-2 text-base font-medium hover:text-primary data-[active]:text-primary data-[state=open]:text-primary capitalize inline-flex items-center">
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger
+          onClick={() => {
+            setOpen(true);
+          }}
+          className="p-2 text-base font-medium hover:text-primary data-[active]:text-primary data-[state=open]:text-primary capitalize inline-flex items-center">
           Categories{" "}
           <ChevronDown
-            className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+            className={cn(
+              "relative top-[1px] ml-1 h-4 w-4",
+              open && "rotate-180"
+            )}
             aria-hidden="true"
           />
         </PopoverTrigger>
-        <PopoverContent align="center" className="w-[30rem] p-0">
+        <PopoverContent align="end" className="w-[30rem] p-0">
           <h1 className="p-5 text-xl capitalize font-semibold border-b">
             popular categories
           </h1>
@@ -87,42 +121,45 @@ export const TopNav = () => {
       link: "/about-us",
     },
   ];
+
   return (
-    <div className="z-50 h-16 fixed top-0 left-0 w-full py-4 shadow bg-background/50 backdrop-blur-md backdrop-saturate-50 flex items-center">
-      <div className="container mx-auto w-full max-w-screen-2xl flex justify-between items-center">
-        <div className="relative aspect-square w-10">
-          <Image
-            src={"/images/logo.png"}
-            alt="logo"
-            fill
-            sizes="500"
-            priority
-          />
-        </div>
-        <div className="hidden md:flex gap-2">
-          {navdata?.map((item, i) => {
-            return item?.com ? (
-              item?.com
-            ) : (
-              <NavigationMenu>
-                <NavigationMenuList>
-                  <NavigationMenuItem key={i}>
-                    <Link href={item?.link} legacyBehavior passHref>
-                      <NavigationMenuLink
-                        className={cn(
-                          "inline-flex w-max items-center justify-center rounded-md p-2 text-base font-medium hover:text-primary data-[active]:text-primary data-[state=open]:text-primary capitalize"
-                        )}>
-                        {item?.title}
-                      </NavigationMenuLink>
-                    </Link>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
-            );
-          })}
-        </div>
-        <div className="hidden md:">
-          <Link href={"/contact"}>Contact</Link>
+    <div
+      className={cn(
+        "z-50 h-20 fixed top-0 left-0 w-full hidden lg:block",
+        homeSweetHome && "fixed bg-background/0",
+        (!homeSweetHome || iAmTooFar) &&
+          "bg-background/70 backdrop-blur-md backdrop-saturate-150",
+        !homeSweetHome && "sticky",
+        homeSweetHome && !iAmTooFar && "text-background"
+      )}>
+      <div className="flex items-center h-full">
+        <div className="container mx-auto w-full max-w-screen-2xl flex justify-between items-center">
+          <Logo />
+          <div className="hidden md:flex gap-2">
+            {navdata?.map((item, i) => {
+              return item?.com ? (
+                item?.com
+              ) : (
+                <NavigationMenu>
+                  <NavigationMenuList>
+                    <NavigationMenuItem key={i}>
+                      <Link href={item?.link} legacyBehavior passHref>
+                        <NavigationMenuLink
+                          className={cn(
+                            "inline-flex w-max items-center justify-center rounded-md p-2 text-base font-medium hover:text-primary data-[active]:text-primary data-[state=open]:text-primary capitalize"
+                          )}>
+                          {item?.title}
+                        </NavigationMenuLink>
+                      </Link>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
+              );
+            })}
+          </div>
+          <div className="hidden md:">
+            <Link href={"/contact"}>Contact</Link>
+          </div>
         </div>
       </div>
     </div>

@@ -5,6 +5,27 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const siteName = (value: string) => {
+  let result;
+  const name = "ramadan baazar";
+
+  switch (value) {
+    case "upp":
+      result = name.toUpperCase();
+      break;
+
+    case "low":
+      result = name.toLowerCase();
+      break;
+
+    default:
+      result = name.charAt(0).toUpperCase() + name.slice(1);
+      break;
+  }
+
+  return result;
+};
+
 export const addHyphen = (value: string | undefined) => {
   if (value === undefined) {
     return "";

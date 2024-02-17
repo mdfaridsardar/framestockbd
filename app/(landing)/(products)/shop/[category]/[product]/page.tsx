@@ -97,51 +97,53 @@ const page = ({ params }: { params: { category: string; product: any } }) => {
           </div>
         </div>
         <div className="col-span-3">
-          <div className="space-y-2 py-5 border-b">
-            <h1 className="text-2xl font-semibold break-all capitalize">
-              {removeHyphen(params?.product)}
-            </h1>
-            <p className="text-sm text-muted-foreground">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex
-              dolores dignissimos similique sequi magnam quae, illum quis?
-              Incidunt, natus sequi!
-            </p>
-          </div>
-          <div className="space-y-2 py-5 border-b">
-            <h1>Price: {productView?.price}.00 &#2547;</h1>
-          </div>
-          <div className="py-5 border-b flex flex-wrap gap-4 items-center w-full">
-            <a
-              target="_blank"
-              href={`https://m.me/221402801059175?text=${url + pathname}`}>
-              <Button>
-                <BsMessenger className="mr-2" />
-                Send Product
-              </Button>
-            </a>
-            <Link href={"tel:+8801752087454"}>
-              <Button>
-                <PhoneCall className="mr-2 w-4 h-4" />
-                +8801752087454
-              </Button>
-            </Link>
-          </div>
-          <div className="py-5 border-b flex flex-wrap gap-4">
-            {services?.map((item) => {
-              return (
-                <Card className="p-4 space-y-1">
-                  <div className="flex text-base items-center font-medium capitalize">
-                    <item.icon className="w-5 h-5 text-primary mr-2" />
-                    {item?.label}
-                  </div>
-                  <div className="flex text-muted-foreground text-sm">
-                    <div className="w-5 mr-2"></div>
-                    {item?.subtitle}
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
+          <Card className="p-5">
+            <div className="space-y-2 py-5 border-b">
+              <h1 className="text-2xl font-semibold break-all capitalize">
+                {removeHyphen(params?.product)}
+              </h1>
+              <p className="text-sm text-muted-foreground">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex
+                dolores dignissimos similique sequi magnam quae, illum quis?
+                Incidunt, natus sequi!
+              </p>
+            </div>
+            <div className="space-y-2 py-5 border-b">
+              <h1>Price: {productView?.price}.00 &#2547;</h1>
+            </div>
+            <div className="py-5 border-b flex flex-wrap gap-4 items-center w-full">
+              <a
+                target="_blank"
+                href={`https://m.me/221402801059175?text=${url + pathname}`}>
+                <Button>
+                  <BsMessenger className="mr-2" />
+                  Send Product
+                </Button>
+              </a>
+              <Link href={"tel:+8801752087454"}>
+                <Button>
+                  <PhoneCall className="mr-2 w-4 h-4" />
+                  +8801752087454
+                </Button>
+              </Link>
+            </div>
+            <div className="pt-5 flex flex-wrap gap-4">
+              {services?.map((item) => {
+                return (
+                  <Card className="p-4 space-y-1">
+                    <div className="flex text-base items-center font-medium capitalize">
+                      <item.icon className="w-5 h-5 text-primary mr-2" />
+                      {item?.label}
+                    </div>
+                    <div className="flex text-muted-foreground text-sm">
+                      <div className="w-5 mr-2"></div>
+                      {item?.subtitle}
+                    </div>
+                  </Card>
+                );
+              })}
+            </div>
+          </Card>
         </div>
       </div>
     </div>
