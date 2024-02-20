@@ -243,52 +243,59 @@ export const RamadanCalender = () => {
   ];
 
   return (
-    <div className="w-full grid xl:grid-cols-3 gap-5 py-5">
-      {data?.map((item, i) => {
-        return (
-          <Card
-            key={i}
-            className="overflow-hidden mx-auto w-full max-w-screen-sm">
-            <h1 className="text-primary font-semibold text-2xl border-b py-5 text-center">
-              {item?.type}
-            </h1>
-            <Table className="xl:text-xs">
-              <TableHeader>
-                <TableRow className="font-medium bg-accent">
-                  <TableCell className="min-w-5">রমজান</TableCell>
-                  <TableCell className="min-w-10 text-center">তারিখ</TableCell>
-                  <TableCell className="min-w-20 text-center">দিন</TableCell>
-                  <TableCell className="min-w-8 text-center">সেহরি</TableCell>
-                  <TableCell className="min-w-8 text-center">ইফতার</TableCell>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {data[i].days.map((val: any, id: number) => {
-                  return (
-                    <TableRow key={id}>
-                      <TableCell className="xl:p-2 min-w-5 h-full flex items-center justify-center">
-                        {val?.ramadan}
-                      </TableCell>
-                      <TableCell className="xl:p-2 min-w-10 text-center">
-                        {val?.date}
-                      </TableCell>
-                      <TableCell className="xl:p-2 min-w-20 text-center">
-                        {val?.day}
-                      </TableCell>
-                      <TableCell className="xl:p-2 min-w-8 text-center">
-                        {val?.start}
-                      </TableCell>
-                      <TableCell className="xl:p-2 min-w-8 text-center">
-                        {val?.end}
-                      </TableCell>
-                    </TableRow>
-                  );
-                })}
-              </TableBody>
-            </Table>
-          </Card>
-        );
-      })}
+    <div className="">
+      <h1 className="text-primary font-semibold text-3xl py-5 text-center">
+        রমজান ক্যালেন্ডার ২০২৪, হিজরি ১৪৪৫
+      </h1>
+      <div className="w-full grid xl:grid-cols-3 gap-5 py-5">
+        {data?.map((item, i) => {
+          return (
+            <Card
+              key={i}
+              className="overflow-hidden mx-auto w-full max-w-screen-sm">
+              <h1 className="text-primary font-semibold text-2xl border-b py-5 text-center">
+                {item?.type}
+              </h1>
+              <Table className="xl:text-xs">
+                <TableHeader>
+                  <TableRow className="font-medium bg-accent">
+                    <TableCell className="min-w-5">রমজান</TableCell>
+                    <TableCell className="min-w-10 text-center">
+                      তারিখ
+                    </TableCell>
+                    <TableCell className="min-w-20 text-center">দিন</TableCell>
+                    <TableCell className="min-w-8 text-center">সেহরি</TableCell>
+                    <TableCell className="min-w-8 text-center">ইফতার</TableCell>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {data[i].days.map((val: any, id: number) => {
+                    return (
+                      <TableRow key={id}>
+                        <TableCell className="xl:p-2 min-w-5 h-full flex items-center justify-center">
+                          {val?.ramadan}
+                        </TableCell>
+                        <TableCell className="xl:p-2 min-w-10 text-center">
+                          {val?.date}
+                        </TableCell>
+                        <TableCell className="xl:p-2 min-w-20 text-center">
+                          {val?.day}
+                        </TableCell>
+                        <TableCell className="xl:p-2 min-w-8 text-center">
+                          {val?.start}
+                        </TableCell>
+                        <TableCell className="xl:p-2 min-w-8 text-center">
+                          {val?.end}
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </Card>
+          );
+        })}
+      </div>
     </div>
   );
 };
