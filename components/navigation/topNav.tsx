@@ -108,6 +108,7 @@ export const TopNav = () => {
     {
       title: "home",
       link: "/",
+      hide: homeSweetHome,
     },
     {
       title: "Shop",
@@ -126,7 +127,7 @@ export const TopNav = () => {
     <div
       className={cn(
         "z-50 h-20 fixed top-0 left-0 w-full hidden lg:block",
-        homeSweetHome && "fixed bg-background/0",
+        homeSweetHome && "fixed bg-background/0 text-primary",
         (!homeSweetHome || iAmTooFar) &&
           "bg-background/70 backdrop-blur-md backdrop-saturate-150",
         !homeSweetHome && "sticky",
@@ -137,24 +138,24 @@ export const TopNav = () => {
           <Logo />
           <div className="hidden md:flex gap-2">
             {navdata?.map((item, i) => {
-              return item?.com ? (
-                item?.com
-              ) : (
-                <NavigationMenu>
-                  <NavigationMenuList>
-                    <NavigationMenuItem key={i}>
-                      <Link href={item?.link} legacyBehavior passHref>
-                        <NavigationMenuLink
-                          className={cn(
-                            "inline-flex w-max items-center justify-center rounded-md p-2 text-base font-medium hover:text-primary data-[active]:text-primary data-[state=open]:text-primary capitalize"
-                          )}>
-                          {item?.title}
-                        </NavigationMenuLink>
-                      </Link>
-                    </NavigationMenuItem>
-                  </NavigationMenuList>
-                </NavigationMenu>
-              );
+              return item?.com
+                ? item?.com
+                : !item?.hide && (
+                    <NavigationMenu>
+                      <NavigationMenuList>
+                        <NavigationMenuItem key={i}>
+                          <Link href={item?.link} legacyBehavior passHref>
+                            <NavigationMenuLink
+                              className={cn(
+                                "inline-flex w-max items-center justify-center rounded-md p-2 text-base font-medium hover:text-primary data-[active]:text-primary data-[state=open]:text-primary capitalize"
+                              )}>
+                              {item?.title}
+                            </NavigationMenuLink>
+                          </Link>
+                        </NavigationMenuItem>
+                      </NavigationMenuList>
+                    </NavigationMenu>
+                  );
             })}
           </div>
           <div className="hidden md:">

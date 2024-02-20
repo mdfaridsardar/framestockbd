@@ -1,6 +1,7 @@
 "use client";
 
 import { Product } from "@/components/products/product";
+import { RamadanCalender } from "@/components/ramadanCalender";
 import { Card } from "@/components/ui/card";
 import { data } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -149,6 +150,7 @@ export default function Home() {
             })}
           </div>
         </div>
+        <RamadanCalender />
       </div>
     </div>
   );
