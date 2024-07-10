@@ -1,5 +1,6 @@
 "use client";
 
+import { contact } from "@/components/navigation/footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import useUi from "@/lib/hooks/useUi";
@@ -9,7 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { BsMessenger } from "react-icons/bs";
+import { BsMessenger, BsWhatsapp } from "react-icons/bs";
 
 const page = ({ params }: { params: { category: string; product: any } }) => {
   const { productView } = useUi();
@@ -114,18 +115,18 @@ const page = ({ params }: { params: { category: string; product: any } }) => {
             <div className="py-5 border-b flex flex-wrap gap-4 items-center w-full">
               <a
                 target="_blank"
-                href={`https://m.me/221402801059175?text=${url + pathname}`}>
+                href={`https://m.me/framestockbd?text=${url + pathname}`}>
                 <Button>
                   <BsMessenger className="mr-2" />
-                  Send Product
+                  Send on Messenger
                 </Button>
               </a>
-              <Link href={"tel:+8801752087454"}>
+              <a href={`https://api.whatsapp.com/send?text=${url + pathname}`}>
                 <Button>
-                  <PhoneCall className="mr-2 w-4 h-4" />
-                  +8801752087454
+                  <BsWhatsapp className="mr-2 w-4 h-4" />
+                  Send on Whatsapp
                 </Button>
-              </Link>
+              </a>
             </div>
             <div className="pt-5 flex flex-wrap gap-4">
               {services?.map((item) => {

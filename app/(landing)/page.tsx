@@ -1,10 +1,8 @@
 "use client";
 
 import { Product } from "@/components/products/product";
-import { RamadanCalender } from "@/components/ramadanCalender";
 import { Card } from "@/components/ui/card";
 import { data } from "@/lib/data";
-import { cn } from "@/lib/utils";
 import { Globe, Headphones, Truck } from "lucide-react";
 import Image from "next/image";
 
@@ -57,39 +55,7 @@ export default function Home() {
             return <Product key={i} product={item} />;
           })}
         </div>
-        <div className="">
-          <h1 className="py-5 text-xl md:text-2xl capitalize font-semibold border-b">
-            Get Up To 200&#2547; Off
-          </h1>
-          <div className="grid grid-cols-none sm:grid-cols-2 lg:grid-cols-4 gap-8 py-10 w-full mx-auto">
-            {discount?.map((item, i) => {
-              return (
-                <Card
-                  key={i}
-                  className={cn(
-                    "bg-accent border-none shadow-md group w-full",
-                    item?.className
-                  )}>
-                  <div className="p-5 text-2xl md:text-3xl font-medium capitalize flex justify-between">
-                    <h1 className="text-lg">Save</h1>
-                    <h1 className="">
-                      {item?.discount}
-                      &#2547;
-                    </h1>
-                  </div>
-                  <div className="relative aspect-video w-full rounded-md overflow-hidden">
-                    <Image
-                      src={item?.img}
-                      alt="img"
-                      fill
-                      className="object-cover rounded-b-md group-hover:scale-110 transition-all duration-300"
-                    />
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
+
         <div className="">
           <h1 className="py-5 text-xl md:text-2xl capitalize font-semibold border-b">
             popular categories
@@ -150,7 +116,6 @@ export default function Home() {
             })}
           </div>
         </div>
-        <RamadanCalender />
       </div>
     </div>
   );

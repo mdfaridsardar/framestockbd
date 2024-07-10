@@ -1,6 +1,6 @@
 export const data = [
   {
-    category: "foods",
+    category: "mobile",
     title: "Lorem ipsum, dolor sit amet consectetur",
     price: 5000,
     productimages: [

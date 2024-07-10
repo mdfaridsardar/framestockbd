@@ -1,33 +1,35 @@
 "use client";
 
-import { siteName } from "@/lib/utils";
-import Link from "next/link";
 import { Logo } from "@/components/navigation/logo";
-import { data } from "@/lib/data";
-import Image from "next/image";
-import { Card } from "@/components/ui/card";
+import { siteName } from "@/lib/utils";
 import { Mail, Phone } from "lucide-react";
-import { BsFacebook } from "react-icons/bs";
+import Link from "next/link";
+import { BsFacebook, BsTiktok } from "react-icons/bs";
+
+export const contact = [
+  {
+    icon: Mail,
+    label: "framestockbd@gmail.com",
+    link: "mailto:framestockbd@gmail.com",
+  },
+  {
+    icon: Phone,
+    label: "+8801645469055",
+    link: "tel:+8801645469055",
+  },
+  {
+    icon: BsTiktok,
+    label: "framestockbd",
+    link: "https://www.tiktok.com/@framestockbd",
+  },
+  {
+    icon: BsFacebook,
+    label: "Framestockbd",
+    link: "https://www.facebook.com/framestockbd",
+  },
+];
 
 const Footer = () => {
-  const contact = [
-    {
-      icon: Mail,
-      label: "ramadanbaazar@gmail.com",
-      link: "mailto:ramadanbaazar@gmail.com",
-    },
-    {
-      icon: Phone,
-      label: "+8801752087454",
-      link: "tel:+8801752087454",
-    },
-    {
-      icon: BsFacebook,
-      label: "Ramadanbaazar",
-      link: "https://www.facebook.com/ramadanbaazar",
-    },
-  ];
-
   return (
     <>
       <div className="container w-full max-w-screen-2xl pt-5">
@@ -61,6 +63,7 @@ const Footer = () => {
                         className="text-inherit/80 hover:text-inherit cursor-pointer text-sm">
                         <Link
                           href={item?.link}
+                          target="_blank"
                           className="hover:text-primary inline-flex">
                           <item.icon className="w-4 h-4 mr-2 mt-1" />
                           <p className="underline underline-offset-4">
